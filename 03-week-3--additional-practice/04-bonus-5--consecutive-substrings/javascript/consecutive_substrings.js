@@ -39,11 +39,10 @@ if (require.main === module) {
 module.exports = consecutiveSubstrings;
 
 // Please add your pseudocode to this file
-// iterate through array from 0 to end, and again from the outer loop to end, and add each character to a substring and the substring to the set.
-// reset the substring every outer iteration
-// convert the set to a list and return it
+// iterate through array from 0 to end, and again from the outer loop to end, and add each character to a substring and the substring to a list.
+// reset the substring every outer loop
+// return the list
 
-// And a written explanation of your
-// performing it this way preserves the order since sets are ordered by when a value is added to it.
-// using a set prevents duplicates and ensures the first occurance displays first in the solution.
-// after viewing the solution, it appears duplicates are allowed, and I could just push everything to an array and not use the set.
+// And a written explanation
+// by using a substring starting from an index and building outward, then repeating through the string it ensures the order is maintained,
+// and every possible consecutive substring is captured
