@@ -1,14 +1,13 @@
 function consecutiveSubstrings(string) {
-  substrings = new Set();
   solution = [];
   for (let i = 0; i < string.length; i++) {
     currentSub = "";
     for (let j = i; j < string.length; j++) {
       currentSub += string[j];
-      substrings.add(currentSub);
+      solution.push(currentSub);
     }
   }
-  return [...substrings];
+  return solution;
 }
 
 if (require.main === module) {
@@ -33,7 +32,7 @@ if (require.main === module) {
 
   console.log("");
 
-  console.log("Expecting: [' ', ' a', ' a ', 'a', 'a ']");
+  console.log("Expecting: [' ', ' a', ' a ', 'a', 'a ', ' ']");
   console.log("=>", consecutiveSubstrings(" a "));
 }
 
