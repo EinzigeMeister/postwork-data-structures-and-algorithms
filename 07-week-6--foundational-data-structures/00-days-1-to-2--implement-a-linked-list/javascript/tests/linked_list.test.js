@@ -69,22 +69,21 @@ describe("LinkedList", () => {
     test("iterate() calls the provided callback on every node with the node as an argument to the callback", () => {
       const values = [];
       linkedList.iterate((node) => values.push(node));
-  
       expect(values.length).toBe(4);
       expect(values[3]).toBe(nodeFour);
     });
-  
+
     test("iterate() can handle an empty list", () => {
       const values = [];
       emptyList.iterate((node) => values.push(node));
-  
+
       expect(values.length).toBe(0);
     });
-  
+
     test("iterate() can handle a list with one node", () => {
       const values = [];
       oneItemList.iterate((node) => values.push(node));
-  
+
       expect(values.length).toBe(1);
       expect(values[0]).toBe(justOne);
     });
@@ -92,7 +91,7 @@ describe("LinkedList", () => {
 
   describe("print()", () => {
     let consoleOutput = [];
-    const mockOutput = output => consoleOutput.push(output);
+    const mockOutput = (output) => consoleOutput.push(output);
     beforeEach(() => (console.log = mockOutput));
     afterEach(() => (consoleOutput = []));
 
@@ -212,7 +211,9 @@ describe("LinkedList", () => {
       const two = new Node("replace at 2");
       const three = new Node("replace at 3");
 
-      [zero, one, two, three].forEach((node, i) => { linkedList.replace(i, node) });
+      [zero, one, two, three].forEach((node, i) => {
+        linkedList.replace(i, node);
+      });
 
       expect(linkedList.head).toBe(zero);
       expect(linkedList.head.next).toBe(one);
@@ -231,7 +232,7 @@ describe("LinkedList", () => {
       expect(oneItemList.head.next).toBe(justOne);
       expect(oneItemList.head.next.next).toBe(null);
     });
-    
+
     test("can insert a node at the very end of the list (making a new tail)", () => {
       const newNode = new Node("hi");
       oneItemList.insert(1, newNode);
@@ -253,7 +254,7 @@ describe("LinkedList", () => {
 
   describe("remove()", () => {
     let consoleOutput = [];
-    const mockOutput = output => consoleOutput.push(output);
+    const mockOutput = (output) => consoleOutput.push(output);
     beforeEach(() => (console.log = mockOutput));
     afterEach(() => (consoleOutput = []));
 
@@ -265,7 +266,7 @@ describe("LinkedList", () => {
       const removed = linkedList.remove(1);
       let found = false;
 
-      linkedList.iterate(node => {
+      linkedList.iterate((node) => {
         if (node === removed) {
           founds = true;
         }
@@ -278,7 +279,7 @@ describe("LinkedList", () => {
       linkedList.remove(2);
       linkedList.print();
 
-      expect(consoleOutput).toEqual(['one', 'two', 'four']);
+      expect(consoleOutput).toEqual(["one", "two", "four"]);
     });
   });
 
