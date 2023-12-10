@@ -76,12 +76,18 @@ class LinkedList {
   }
 
   // replace the node value at the given index with the given node
+  // Not a fan of the wording, the test requires the node object to be replaced
+  // not the "value" of the node at that index. Had to check the solution when
+  // i saw that the test required object equality not value equality
   replace(idx, node) {
-    if (idx === 0) this.head.value = node;
-    else {
+    if (idx === 0) {
+      this.removeFirst();
+      this.addFirst(node);
+    } else {
       this.iterate((currentNode) => {
         if (idx === 1) {
-          currentNode.next.value = node;
+          node.next = currentNode.next.next;
+          currentNode.next = node;
           return true;
         }
         idx--;
