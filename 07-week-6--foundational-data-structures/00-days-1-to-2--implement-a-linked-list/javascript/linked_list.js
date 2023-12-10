@@ -42,12 +42,14 @@ class LinkedList {
   // you may wish to use the iterate method
   addLast(node) {
     if (!this.head) this.head = node;
-    this.iterate((currentNode) => {
-      if (!currentNode.next) {
-        currentNode.next = node;
-        return true;
-      }
-    });
+    else {
+      this.iterate((currentNode) => {
+        if (!currentNode.next) {
+          currentNode.next = node;
+          return true;
+        }
+      });
+    }
   }
 
   // remove the first Node in the list and update head
@@ -64,8 +66,8 @@ class LinkedList {
     let removedNode = this.head;
     if ((this.head?.next || null) === null) return this.removeFirst();
     this.iterate((node) => {
-      removedNode = node;
       if (!node.next?.next) {
+        removedNode = node.next;
         node.next = null;
         return true;
       }
