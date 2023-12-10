@@ -14,13 +14,12 @@ class LinkedList {
   }
 
   // print each node's value on its own line
-  // use your iterate method to be DRY! Don't get caught in the code rain, brrr.
   print() {
     this.iterate((node) => console.log(node.value));
   }
 
   // find the node with the target value and return it
-  // if not found return null, use your iterate method to be DRY!
+  // if not found return null
   find(target) {
     let found = null;
     this.iterate((node) => {
@@ -39,7 +38,6 @@ class LinkedList {
   }
 
   // add node to end of list, no nodes should be removed
-  // you may wish to use the iterate method
   addLast(node) {
     if (!this.head) this.head = node;
     else {
@@ -60,7 +58,7 @@ class LinkedList {
     return removedNode;
   }
 
-  // remove the tail node, iterate may be helpful
+  // remove the tail node
   // return the node you just removed
   removeLast() {
     let removedNode = this.head;
@@ -75,10 +73,7 @@ class LinkedList {
     return removedNode;
   }
 
-  // replace the node value at the given index with the given node
-  // Not a fan of the wording, the test requires the node object to be replaced
-  // not the "value" of the node at that index. Had to check the solution when
-  // i saw that the test required object equality not value equality
+  // replace the node at the given index with the given node
   replace(idx, node) {
     if (idx === 0) {
       this.removeFirst();
